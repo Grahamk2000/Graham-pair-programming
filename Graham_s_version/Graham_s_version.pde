@@ -5,6 +5,7 @@ Grid alpha;
 Snake theSnake;
 
 
+
 int cols = 25;
 int rows = cols;
 
