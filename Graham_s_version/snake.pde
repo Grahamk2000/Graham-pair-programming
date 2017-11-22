@@ -1,15 +1,15 @@
 class Snake{
-
-Snake(_x, _y){
+  
+      
+//Snake(_x, _y){
   
   
-  
         
         
         
         
         
-      }
+//      }
     
 
   

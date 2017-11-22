@@ -1,7 +1,7 @@
 
 //test
 
-Grid theGrid;
+Grid alpha;
 Snake theSnake;
 
 
@@ -11,15 +11,15 @@ int rows = cols;
 void setup() {
   size(700, 700);
   
-  theGrid = new Grid(cols, rows);
-  ArrayList<Snake> theSnake = new ArrayList<Snake>();
+  alpha = new Grid(cols, rows);
+  theSnake = new Snake();
   
 }
 
 void draw() {
   background(255);
   
-  theGrid.display();
+  alpha.display();
   theSnake.update();
   
 }
