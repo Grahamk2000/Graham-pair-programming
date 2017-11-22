@@ -23,25 +23,28 @@ class Snake{
   void update(){
     
     if (keyPressed && key ==  'w'){
-     direction = 1; 
-     
-      snakeX.add(0, snakeX.get(0) + dx[direction]);
-      snakeY.add(0, snakeY.get(0) + dy[direction]);
+     direction = 0; 
+
      
      
     }
     if (keyPressed && key ==  's'){
-     direction = 2; 
+     direction = 1; 
     }
     
     if (keyPressed && key ==  'a'){
-     direction = 3; 
+     direction = 2; 
     }
     
     if (keyPressed && key ==  'd'){
-     direction = 4; 
+     direction = 3; 
     }
 
+
+
+         
+      snakeX.add(0, snakeX.get(0) + dx[direction]);
+      snakeY.add(0, snakeY.get(0) + dy[direction]);
 
     
     
