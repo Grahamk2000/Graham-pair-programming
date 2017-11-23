@@ -1,8 +1,6 @@
-
-//test
-
 Grid alpha;
 Snake theSnake;
+Point locations;
 
 
 
@@ -14,6 +12,8 @@ void setup() {
   
   alpha = new Grid(cols, rows);
   theSnake = new Snake();
+  //locations = new Point();
+
   
 }
 
