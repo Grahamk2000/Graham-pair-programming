@@ -3,11 +3,7 @@ class Snake{
 
     
   ArrayList<Point> snakeLocations = new ArrayList<Point>();
-    
-    
-  //snakeLocations.add( new Point(5, 5 ) );  
-    
-
+   
   int [] dx = {0, 0, -1, 1};
   int [] dy = {-1, 1, 0, 0};
     
@@ -21,6 +17,10 @@ class Snake{
    
    
   Snake(){
+    snakeLocations.add( new Point(5, 5 ) );
+    
+    
+    
     
   }
   
@@ -44,9 +44,9 @@ class Snake{
     if (keyPressed && key ==  'd'){
      direction = 3; 
     }
-    if (snakeLocations.size() >= 0) {
-      snakeLocations.add( new Point(snakeLocations.get(0).x + dx[direction] , snakeLocations.get(0).y + dy[direction] ) );
-    }
+    
+    snakeLocations.add( new Point(snakeLocations.get(0).x + dx[direction] , snakeLocations.get(0).y + dy[direction] ) );
+    
     
     
     
