@@ -9,6 +9,7 @@ int rows = cols;
 
 void setup() {
   size(700, 700);
+  //frameRate(5);
   
   alpha = new Grid(cols, rows);
   theSnake = new Snake();

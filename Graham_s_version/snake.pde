@@ -13,7 +13,9 @@ class Snake{
    int cellWidth = width/cols;
    int cellHeight = height/rows;
    
-   int direction = 2;
+   int direction = 3;
+   int snakeLength = 7;
+   int gameOn = 1;
    
    
   Snake(){
@@ -26,6 +28,18 @@ class Snake{
   
   
   void update(){
+    
+    if (gameOn == 2){
+     fill(0);
+     snakeLocations.clear();
+     textSize(65);
+     text("game over", width/2, height/2);
+     
+      
+    }
+    
+    
+    if (gameOn == 1){
     
     if (keyPressed && key ==  'w'){
      direction = 0; 
@@ -45,14 +59,31 @@ class Snake{
      direction = 3; 
     }
     
-    snakeLocations.add( new Point(snakeLocations.get(0).x + dx[direction] , snakeLocations.get(0).y + dy[direction] ) );
     
+    if( frameCount % 5 == 0){
+      snakeLocations.add( new Point(snakeLocations.get(snakeLocations.size() - 1).x + dx[direction] , snakeLocations.get(snakeLocations.size() - 1).y + dy[direction] ) );
+      if (snakeLength < snakeLocations.size() ){
+        snakeLocations.remove(0); 
+      
+        
+      }
+      
     
+    }
+    for (int i=0; i<snakeLocations.size(); i++) {
     
+      if ((snakeLocations.get(snakeLocations.size() - 1).x  == -1) || (snakeLocations.get(snakeLocations.size() - 1).x  == cols) ||
+      (snakeLocations.get(snakeLocations.size() - 1).y  == -1) || (snakeLocations.get(snakeLocations.size() - 1).y  == rows)){
+        gameOn = 2;
+      
+        
+      }
+      
+    }
     
     display();
   }
-  
+  }
   
   void display(){
     
