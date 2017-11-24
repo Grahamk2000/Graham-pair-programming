@@ -14,12 +14,12 @@ class Snake{
    int cellHeight = height/rows;
    
    int direction = 3;
-   int snakeLength = 7;
+   int snakeLength = 2;
    int gameOn = 1;
    
    
   Snake(){
-    snakeLocations.add( new Point(5, 5 ) );
+    snakeLocations.add( new Point(cols/2, rows/2 ) );
     
     
     
@@ -27,7 +27,10 @@ class Snake{
   }
   
   
+  
+  
   void update(){
+
     
     if (gameOn == 2){
      fill(0);
@@ -42,26 +45,34 @@ class Snake{
     if (gameOn == 1){
     
     if (keyPressed && key ==  'w'){
-     direction = 0; 
-
-     
-     
+      if (direction != 1)  {  
+        direction = 0; 
+     }
     }
+    
     if (keyPressed && key ==  's'){
-     direction = 1; 
+      if (direction != 0)  {
+        direction = 1; 
+     }
     }
     
     if (keyPressed && key ==  'a'){
-     direction = 2; 
+      if (direction != 3)  { 
+        direction = 2; 
+     }
     }
     
     if (keyPressed && key ==  'd'){
-     direction = 3; 
+      if (direction != 2)  {
+        direction = 3; 
+     }
     }
     
     
     if( frameCount % 5 == 0){
       snakeLocations.add( new Point(snakeLocations.get(snakeLocations.size() - 1).x + dx[direction] , snakeLocations.get(snakeLocations.size() - 1).y + dy[direction] ) );
+      
+      
       if (snakeLength < snakeLocations.size() ){
         snakeLocations.remove(0); 
       
@@ -70,12 +81,19 @@ class Snake{
       
     
     }
-    for (int i=0; i<snakeLocations.size(); i++) {
+  
+      
     
-      if ((snakeLocations.get(snakeLocations.size() - 1).x  == -1) || (snakeLocations.get(snakeLocations.size() - 1).x  == cols) ||
+      if ((snakeLocations.get(snakeLocations.size() - 1).x  == -1) || (snakeLocations.get(snakeLocations.size() - 1).x  == cols) ||// collision with a side of the screen
       (snakeLocations.get(snakeLocations.size() - 1).y  == -1) || (snakeLocations.get(snakeLocations.size() - 1).y  == rows)){
         gameOn = 2;
+     
+      }
       
+     for (int i=0; i<snakeLocations.size() - 1; i++) {
+      
+      if ((snakeLocations.get(snakeLocations.size() - 1).x == snakeLocations.get(i).x) &&  (snakeLocations.get(snakeLocations.size() - 1).y == snakeLocations.get(i).y)){ // the snake ate itself
+        gameOn = 2;
         
       }
       
